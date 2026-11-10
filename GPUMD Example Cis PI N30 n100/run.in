@@ -1,0 +1,13 @@
+potential ./nep_y2025_m09_d29_h12_m27_s14_generation200000.txt
+dftd3 pbe 15 6
+velocity 300
+
+ensemble npt_scr 300 300 100 1.013e-4 1.013e-4 1.013e-4 3 3 3 1000 
+time_step   1
+dump_thermo 1000
+dump_exyz 10000 1 1 1
+dump_restart 10000
+run         1000000
+
+
+

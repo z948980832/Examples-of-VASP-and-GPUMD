@@ -1,0 +1,43 @@
+#Basic setting 
+SYSTEM = 10-isomer 
+NWRITE = 2 #NWRITE(3) write every steps, NWRITE(2) only initial and final steps 
+ISTART = 0 #Read WAVECAR? NO(0), YES(1) 
+ICHARG = 2 #If ISTART(0), then ICHARG(2) | ICHARG(1) allow to read CHGCAR | else ICHARG(0) 
+NCORE = 4 #Parallelization on number of cores 
+
+#Electronic Relaxation (SCC) 
+GGA = PE #Exchange-correlation functionals; revPBE(RE), PBE(PE), PBEsol(PS), BEEF(BF) 
+EDIFF = 1.0E-6 #Energy convergence (eV) for electronic step 
+ENCUT = 500 #Cut-off energy in eV 
+NELM = 100 #Maximum number of electronic SC (selfconsistency) steps 
+PREC = Normal #Select precission, Normal or Accurate 
+LREAL = Auto #Allow projection done in real space 
+ISPIN = 1 #Use spin polarized? NO(1), YES(2) 
+IVDW = 0 #Van Der Waals correction, IVDW(0) no correction, IVDW(12) DFT-D3 correction 
+
+ALGO = All #ALGO is to specify the electronic minimisation algorithm 
+#MAGMOM = 48*0 96*0 #Specify the initial magnetic moment for each atom 
+
+#Ionic Relaxation (OPT) 
+EDIFFG = -1.0E-2 
+
+#Energy convergence (eV) for ionic step 
+NSW = 0 #Maximum number of ionic steps, NSW(0) for single point calculation 
+IBRION = 2 #IBRION(2) for opt. with CG algorithm, IBRION(-1) for non opt. calculation 
+ISIF = 3 #Relaxation for unit cell? NO(2), YES(3) 
+
+ISMEAR = -5 #ISMEAR(1) for metal relaxation, ISMEAR(-5) for non metal relaxation 
+SIGMA = 0.05 #Width of the smearing in eV, Default(0.2) 
+ISYM = 0 #Use symmetry? NO(0), YES(1) 
+
+#Specify Output 
+LWAVE = FALSE #Allow to create WAVECAR file 
+LCHARG = FALSE #Allow to create CHGCAR file  
+POTIM = 1 
+SMASS = 0 
+MDALGO = 3 
+TEBEG = 300 
+TEEND = 300
+LANGEVIN_GAMMA = 10.0 10.0	# Langevin friction coefficient for three atomic species
+LANGEVIN_GAMMA_L = 10.0			# Langevin friction coefficient for lattice degrees of freedom
+PMASS = 1000								# the fictitious mass of the lattice degrees of freedom
